@@ -1,0 +1,27 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="id"
+    [value]="service.formData.id" />
+    <div class="form-group">
+        <label >BOOK NAME</label>
+        <input class="form-control form-control-lg" placeholder="Name of Book" name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name"
+        required [class.invalid]="Name.invalid && Name.touched">
+    </div>
+    <div class="form-group">
+        <label >AUTHOR NAME</label>
+        <input class="form-control form-control-lg" placeholder="Name of Author" name="Autor" #Autor="ngModel" [(ngModel)]="service.formData.Autor"
+        required [class.invalid]="Autor.invalid && Autor.touched">
+    </div>
+    <div class="form-group">
+        <label >QUANTITY OF BOOKS</label>
+        <input class="form-control form-control-lg" placeholder="Number of Books" name="Quantity" #Quantity="ngModel" [(ngModel)]="service.formData.Quantity"
+        required [class.invalid]="Quantity.invalid && Quantity.touched">
+    </div>
+    <div class="form-group">
+        <label >When did it appear?</label>
+        <input class="form-control form-control-lg" placeholder="dd.mm.yyyy" name="Aparition" #Aparition="ngModel" [(ngModel)]="service.formData.Aparition"
+        required maxlength="10" minlength="10" [class.invalid]="Aparition.invalid && Aparition.touched">
+    </div>
+    <div class="form-group">
+       <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>
